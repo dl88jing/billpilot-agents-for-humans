@@ -1,0 +1,67 @@
+[
+  {
+    "id": "bill-001",
+    "payee": "Pacific Gas & Electric",
+    "category": "utilities",
+    "amount": 128.44,
+    "currency": "USD",
+    "due_date": "2026-09-18",
+    "account_last4": "4412",
+    "status": "due",
+    "expected_amount_range": [90, 160],
+    "autopay": false,
+    "notes": "Regular monthly electric bill"
+  },
+  {
+    "id": "bill-002",
+    "payee": "City Water District",
+    "category": "utilities",
+    "amount": 47.20,
+    "currency": "USD",
+    "due_date": "2026-09-20",
+    "account_last4": "1180",
+    "status": "due",
+    "expected_amount_range": [35, 55],
+    "autopay": true,
+    "notes": "Autopay enabled"
+  },
+  {
+    "id": "bill-003",
+    "payee": "StreamFlix",
+    "category": "subscription",
+    "amount": 45.99,
+    "currency": "USD",
+    "due_date": "2026-09-15",
+    "account_last4": "9021",
+    "status": "due",
+    "expected_amount_range": [15.99, 15.99],
+    "autopay": true,
+    "notes": "Unexpected jump from $15.99 — possible plan change"
+  },
+  {
+    "id": "bill-004",
+    "payee": "State Farm Insurance",
+    "category": "insurance",
+    "amount": 186.00,
+    "currency": "USD",
+    "due_date": "2026-09-22",
+    "account_last4": "5520",
+    "status": "due",
+    "expected_amount_range": [180, 190],
+    "autopay": false,
+    "notes": "Semi-annual premium installment"
+  },
+  {
+    "id": "bill-005",
+    "payee": "Pacific Gas & Electric",
+    "category": "utilities",
+    "amount": 128.44,
+    "currency": "USD",
+    "due_date": "2026-09-18",
+    "account_last4": "4412",
+    "status": "due",
+    "expected_amount_range": [90, 160],
+    "autopay": false,
+    "notes": "Duplicate of bill-001 — same payee/amount/due date"
+  }
+]

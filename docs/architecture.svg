@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#0b1220"/>
+  <text x="40" y="48" fill="#e8eefc" font-family="Helvetica,Arial,sans-serif" font-size="28" font-weight="700">BillPilot — System Architecture</text>
+  <text x="40" y="78" fill="#9db0d0" font-family="Helvetica,Arial,sans-serif" font-size="14">Strands Agents SDK · Everyday Agents · AWS Agents for Humans</text>
+
+  <rect x="40" y="120" width="200" height="90" rx="12" fill="#1a2744" stroke="#4f7cff"/>
+  <text x="60" y="155" fill="#e8eefc" font-family="Helvetica,Arial,sans-serif" font-size="16" font-weight="700">Bill Intake</text>
+  <text x="60" y="180" fill="#9db0d0" font-family="Helvetica,Arial,sans-serif" font-size="13">list_bills / parse_bill</text>
+
+  <rect x="280" y="120" width="220" height="90" rx="12" fill="#1a2744" stroke="#4f7cff"/>
+  <text x="300" y="155" fill="#e8eefc" font-family="Helvetica,Arial,sans-serif" font-size="16" font-weight="700">Strands Agent</text>
+  <text x="300" y="180" fill="#9db0d0" font-family="Helvetica,Arial,sans-serif" font-size="13">tools + Bedrock / offline</text>
+
+  <rect x="540" y="120" width="200" height="90" rx="12" fill="#1a2744" stroke="#4f7cff"/>
+  <text x="560" y="155" fill="#e8eefc" font-family="Helvetica,Arial,sans-serif" font-size="16" font-weight="700">Anomaly Check</text>
+  <text x="560" y="180" fill="#9db0d0" font-family="Helvetica,Arial,sans-serif" font-size="13">check_anomaly</text>
+
+  <rect x="780" y="120" width="140" height="90" rx="12" fill="#243015" stroke="#8bd46b"/>
+  <text x="800" y="155" fill="#e8eefc" font-family="Helvetica,Arial,sans-serif" font-size="16" font-weight="700">Decision</text>
+  <text x="800" y="180" fill="#9db0d0" font-family="Helvetica,Arial,sans-serif" font-size="13">gate</text>
+
+  <rect x="180" y="280" width="260" height="100" rx="12" fill="#1a2744" stroke="#8bd46b"/>
+  <text x="200" y="320" fill="#e8eefc" font-family="Helvetica,Arial,sans-serif" font-size="16" font-weight="700">Auto-handle (quiet)</text>
+  <text x="200" y="348" fill="#9db0d0" font-family="Helvetica,Arial,sans-serif" font-size="13">queue_payment_prep</text>
+  <text x="200" y="368" fill="#9db0d0" font-family="Helvetica,Arial,sans-serif" font-size="13">mark_auto_handled</text>
+
+  <rect x="520" y="280" width="260" height="100" rx="12" fill="#3a1d1d" stroke="#ff7a7a"/>
+  <text x="540" y="320" fill="#e8eefc" font-family="Helvetica,Arial,sans-serif" font-size="16" font-weight="700">Human ping</text>
+  <text x="540" y="348" fill="#9db0d0" font-family="Helvetica,Arial,sans-serif" font-size="13">notify_human</text>
+  <text x="540" y="368" fill="#9db0d0" font-family="Helvetica,Arial,sans-serif" font-size="13">unexpected / duplicate</text>
+
+  <path d="M240 165 H280" stroke="#4f7cff" stroke-width="3" fill="none"/>
+  <path d="M500 165 H540" stroke="#4f7cff" stroke-width="3" fill="none"/>
+  <path d="M740 165 H780" stroke="#4f7cff" stroke-width="3" fill="none"/>
+  <path d="M850 210 V250 H310 V280" stroke="#8bd46b" stroke-width="3" fill="none"/>
+  <path d="M850 210 V250 H650 V280" stroke="#ff7a7a" stroke-width="3" fill="none"/>
+
+  <text x="40" y="460" fill="#9db0d0" font-family="Helvetica,Arial,sans-serif" font-size="13">Data: data/sample_bills.json → runtime state in data/runtime/state.json</text>
+  <text x="40" y="485" fill="#9db0d0" font-family="Helvetica,Arial,sans-serif" font-size="13">Live path: Strands Agent + Amazon BedrockModel · Optional: Bedrock AgentCore</text>
+  <text x="40" y="510" fill="#9db0d0" font-family="Helvetica,Arial,sans-serif" font-size="13">Demo path: python -m billpilot.demo (no AWS credentials required)</text>
+</svg>
