@@ -1,7 +1,7 @@
-"""BillPilot — autonomous everyday agent for household bill management."""
+"""BillPilot — multi-agent Everyday Agent for household bill management."""
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
-from billpilot.agent import build_agent, run_offline_pipeline
+from billpilot.orchestrator import build_swarm, run_pipeline
 
-__all__ = ["build_agent", "run_offline_pipeline", "__version__"]
+__all__ = ["build_swarm", "run_pipeline", "__version__"]

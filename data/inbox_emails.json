@@ -1,0 +1,93 @@
+[
+  {
+    "id": "email-001",
+    "from": "billing@pge.com",
+    "subject": "Your PG&E bill is ready — $128.44 due Sep 18",
+    "received_at": "2026-09-10T08:14:00-07:00",
+    "status": "unread",
+    "linked_bill_id": "bill-001",
+    "payee_hint": "Pacific Gas & Electric",
+    "amount_hint": 128.44,
+    "due_hint": "2026-09-18",
+    "scenario": "routine_utility",
+    "body_snippet": "Account ****4412. Amount due $128.44 by Sep 18, 2026."
+  },
+  {
+    "id": "email-002",
+    "from": "noreply@citywater.gov",
+    "subject": "City Water eBill — Autopay scheduled",
+    "received_at": "2026-09-11T09:02:00-07:00",
+    "status": "unread",
+    "linked_bill_id": "bill-002",
+    "payee_hint": "City Water District",
+    "amount_hint": 47.20,
+    "due_hint": "2026-09-20",
+    "scenario": "routine_autopay",
+    "body_snippet": "Your autopay of $47.20 will draft on Sep 20."
+  },
+  {
+    "id": "email-003",
+    "from": "billing@streamflix.example",
+    "subject": "Your StreamFlix plan changed — new total $45.99",
+    "received_at": "2026-09-12T18:40:00-07:00",
+    "status": "unread",
+    "linked_bill_id": "bill-003",
+    "payee_hint": "StreamFlix",
+    "amount_hint": 45.99,
+    "due_hint": "2026-09-15",
+    "scenario": "surprise_subscription",
+    "body_snippet": "Premium Plus family plan is now $45.99/mo (was $15.99)."
+  },
+  {
+    "id": "email-004",
+    "from": "payments@statefarm.com",
+    "subject": "State Farm premium installment due",
+    "received_at": "2026-09-08T11:20:00-07:00",
+    "status": "unread",
+    "linked_bill_id": "bill-004",
+    "payee_hint": "State Farm Insurance",
+    "amount_hint": 186.00,
+    "due_hint": "2026-09-22",
+    "scenario": "routine_insurance",
+    "body_snippet": "Installment $186.00 due Sep 22 for policy ****5520."
+  },
+  {
+    "id": "email-005",
+    "from": "billing@pge.com",
+    "subject": "Reminder: PG&E bill $128.44 due Sep 18",
+    "received_at": "2026-09-13T07:55:00-07:00",
+    "status": "unread",
+    "linked_bill_id": "bill-005",
+    "payee_hint": "Pacific Gas & Electric",
+    "amount_hint": 128.44,
+    "due_hint": "2026-09-18",
+    "scenario": "duplicate_utility",
+    "body_snippet": "Duplicate notice for the same account/amount/due date as email-001."
+  },
+  {
+    "id": "email-006",
+    "from": "invoices@greenleaflandscape.example",
+    "subject": "Invoice #GL-9921 — Fall cleanup $275.00",
+    "received_at": "2026-09-14T15:10:00-07:00",
+    "status": "unread",
+    "linked_bill_id": "bill-006",
+    "payee_hint": "GreenLeaf Landscaping",
+    "amount_hint": 275.00,
+    "due_hint": "2026-09-19",
+    "scenario": "new_payee",
+    "body_snippet": "First invoice from GreenLeaf Landscaping. Net 5. Please pay $275.00."
+  },
+  {
+    "id": "email-007",
+    "from": "alerts@firstnational.example",
+    "subject": "Balance alert: Everyday Checking below $900",
+    "received_at": "2026-09-14T16:00:00-07:00",
+    "status": "unread",
+    "linked_bill_id": "bill-007",
+    "payee_hint": "Verizon Wireless",
+    "amount_hint": 95.00,
+    "due_hint": "2026-09-21",
+    "scenario": "low_balance",
+    "body_snippet": "Available balance $820.50. Upcoming Verizon $95 may stress min buffer."
+  }
+]

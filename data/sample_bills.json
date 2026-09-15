@@ -10,6 +10,7 @@
     "status": "due",
     "expected_amount_range": [90, 160],
     "autopay": false,
+    "scenario": "routine_utility",
     "notes": "Regular monthly electric bill"
   },
   {
@@ -23,6 +24,7 @@
     "status": "due",
     "expected_amount_range": [35, 55],
     "autopay": true,
+    "scenario": "routine_autopay",
     "notes": "Autopay enabled"
   },
   {
@@ -36,6 +38,7 @@
     "status": "due",
     "expected_amount_range": [15.99, 15.99],
     "autopay": true,
+    "scenario": "surprise_subscription",
     "notes": "Unexpected jump from $15.99 — possible plan change"
   },
   {
@@ -49,6 +52,7 @@
     "status": "due",
     "expected_amount_range": [180, 190],
     "autopay": false,
+    "scenario": "routine_insurance",
     "notes": "Semi-annual premium installment"
   },
   {
@@ -62,6 +66,35 @@
     "status": "due",
     "expected_amount_range": [90, 160],
     "autopay": false,
+    "scenario": "duplicate_utility",
     "notes": "Duplicate of bill-001 — same payee/amount/due date"
+  },
+  {
+    "id": "bill-006",
+    "payee": "GreenLeaf Landscaping",
+    "category": "home_services",
+    "amount": 275.00,
+    "currency": "USD",
+    "due_date": "2026-09-19",
+    "account_last4": "0000",
+    "status": "due",
+    "expected_amount_range": [200, 300],
+    "autopay": false,
+    "scenario": "new_payee",
+    "notes": "First-time payee — never seen in household trusted list"
+  },
+  {
+    "id": "bill-007",
+    "payee": "Verizon Wireless",
+    "category": "telecom",
+    "amount": 95.00,
+    "currency": "USD",
+    "due_date": "2026-09-21",
+    "account_last4": "7741",
+    "status": "due",
+    "expected_amount_range": [80, 110],
+    "autopay": true,
+    "scenario": "low_balance",
+    "notes": "Routine amount but paying it after others may breach min_funding_buffer"
   }
 ]

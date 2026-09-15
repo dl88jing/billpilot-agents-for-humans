@@ -1,0 +1,30 @@
+# BillPilot household payment policy (deterministic gate)
+version: "1.0"
+name: default_household
+
+# Auto-pay only when amount is at or below this USD threshold
+auto_pay_max_usd: 200.0
+
+# Known trusted payees — new payees always require human approval
+trusted_payees:
+  - "Pacific Gas & Electric"
+  - "City Water District"
+  - "State Farm Insurance"
+  - "StreamFlix"
+  - "Comcast Xfinity"
+  - "Verizon Wireless"
+
+# First-time / unknown payee → HUMAN_REQUIRED
+require_human_on_new_payee: true
+
+# Flag duplicate charges within this many calendar days
+duplicate_window_days: 14
+
+# Keep at least this USD buffer in the funding account after payment
+min_funding_buffer: 150.0
+
+# Amount delta vs expected high that forces human review
+amount_surprise_pct: 0.25
+
+# Categories that always escalate (optional hard rules)
+always_escalate_categories: []

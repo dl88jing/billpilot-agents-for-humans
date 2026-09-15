@@ -1,38 +1,79 @@
 # BillPilot Architecture
 
-BillPilot is an **Everyday Agent** for the AWS Agents for Humans hackathon, built with the [Strands Agents SDK](https://strandsagents.com/).
+BillPilot is a **multi-agent Everyday Agent** for the [AWS Agents for Humans](https://agentsforhumans.devpost.com/) hackathon, built with the [Strands Agents SDK](https://strandsagents.com/).
 
 ## Product contract
 
-**Do the bill busywork. Interrupt humans only when a real decision is required.**
+**Do the bill busywork. Interrupt humans only when policy requires a real decision.**
 
-That contract is enforced by the anomaly → decision gate path, not left to prompt hope.
+Agents **propose**; the deterministic policy engine **decides** (`AUTO` vs `HUMAN_REQUIRED`). Every tool call is **attested** into a hash-chained ledger.
 
 ## Diagram
 
 ![Architecture](architecture.svg)
 
-## Components
+## Swarm pipeline
 
-1. **Intake layer** — `list_bills` / `parse_bill` normalize due bills from fixtures (swap for email/PDF/bank connectors in production).
-2. **Strands tool surface** — six `@tool` functions share one state store under `data/runtime/`.
-3. **Anomaly analysis** — `check_anomaly` flags:
-   - amount outside `expected_amount_range`
-   - duplicate payee + amount + due date
-4. **Decision gate**
-   - safe → `queue_payment_prep` + `mark_auto_handled`
-   - risky → `notify_human(reason, recommended_action)`
-5. **Model layer**
-   - **Offline / judges:** deterministic pipeline invoking the same tools (zero AWS keys)
-   - **Live:** Strands `Agent` + `BedrockModel` (Amazon Bedrock)
-   - **Stretch:** Amazon Bedrock AgentCore deployment (boosts Technical Implementation)
+```
+Fixtures (inbox / calendar / bills / accounts)
+        ↓
+ [Intake Agent]   list_inbox, parse_email_bill, calendar dues
+        ↓
+ [Risk Agent]     check_anomaly, detect_duplicates
+        ↓
+ [Policy Engine]  policies/default.yaml → AUTO | HUMAN_REQUIRED
+        ↓
+   ┌────┴────┐
+   ↓         ↓
+[Treasurer] [Comms]
+ funding +   quiet mark_auto_handled
+ payment     OR notify_human
+ prep
+        ↓
+ Hash-chained audit ledger (verify_ledger → PASS)
+```
 
-## Why this is non-trivial
+## Agents (Strands)
 
-- Multi-step tool orchestration with persistent state
-- Explicit human-in-the-loop boundary matching the hackathon brief
-- Dual-path demo: offline proof for judges + Bedrock path for production fidelity
+| Agent | Package | Tools |
+|-------|---------|-------|
+| Intake | `billpilot/agents/intake.py` | `list_inbox`, `parse_email_bill`, `list_calendar_dues`, `match_bill_to_calendar` |
+| Risk | `billpilot/agents/risk.py` | `check_anomaly`, `detect_duplicates` |
+| Treasurer | `billpilot/agents/treasurer.py` | `list_accounts`, `check_funding`, `queue_payment_prep`, `summarize_payment_queue` |
+| Comms | `billpilot/agents/comms.py` | `notify_human`, `mark_auto_handled` |
 
-## Security / privacy notes
+Orchestrator: `billpilot/orchestrator.py` builds the swarm (`DemoModel` offline, `BedrockModel` when AWS credentials exist) and runs intake → risk → policy → treasurer/comms.
 
-Demo uses local fixtures only. A production deployment should keep bill PII in a vaulted store, minimize what the model sees, and require confirmation on any payment initiation above a user-set threshold.
+## Policy engine
+
+`billpilot/policy.py` + `policies/default.yaml`:
+
+- `auto_pay_max_usd`
+- `trusted_payees` / `require_human_on_new_payee`
+- `duplicate_window_days`
+- `min_funding_buffer`
+- amount surprise vs `expected_amount_range`
+
+## Audit ledger
+
+`billpilot/ledger.py` — append-only JSONL with `sha256(prev_hash|seq|ts|type|payload)`.
+
+```bash
+python -m billpilot.verify_ledger
+```
+
+## Model layer
+
+- **Offline / judges:** deterministic orchestration invoking the **same** Strands `@tool`s; agents constructed with `DemoModel`
+- **Live:** Strands `Agent` + `BedrockModel`
+- **Stretch:** Amazon Bedrock AgentCore
+
+## Scenarios covered in fixtures
+
+| Scenario | Bill | Expected gate |
+|----------|------|----------------|
+| Routine utility | bill-001 City path / PG&E first | AUTO (if buffer OK) |
+| Surprise subscription | bill-003 StreamFlix $45.99 vs $15.99 | HUMAN_REQUIRED |
+| Duplicate utility | bill-005 mirrors bill-001 | HUMAN_REQUIRED |
+| New payee | bill-006 GreenLeaf | HUMAN_REQUIRED |
+| Low balance buffer | bill-007 Verizon after draws | HUMAN_REQUIRED when buffer breached |

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "checking-primary",
+    "name": "Everyday Checking",
+    "institution": "First National",
+    "available_balance": 550.0,
+    "currency": "USD",
+    "scenario": "low_balance_risk",
+    "notes": "Primary funding \u2014 after routine AUTOs, Verizon may breach min_funding_buffer"
+  },
+  {
+    "id": "savings-buffer",
+    "name": "Rainy Day Savings",
+    "institution": "First National",
+    "available_balance": 4200.0,
+    "currency": "USD",
+    "scenario": "reserve",
+    "notes": "Not used for autopay without explicit human approval"
+  }
+]

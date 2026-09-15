@@ -1,0 +1,57 @@
+[
+  {
+    "id": "cal-001",
+    "type": "bill_due",
+    "title": "PG&E electric due",
+    "bill_id": "bill-001",
+    "date": "2026-09-18",
+    "payee": "Pacific Gas & Electric"
+  },
+  {
+    "id": "cal-002",
+    "type": "bill_due",
+    "title": "City Water due",
+    "bill_id": "bill-002",
+    "date": "2026-09-20",
+    "payee": "City Water District"
+  },
+  {
+    "id": "cal-003",
+    "type": "bill_due",
+    "title": "StreamFlix subscription",
+    "bill_id": "bill-003",
+    "date": "2026-09-15",
+    "payee": "StreamFlix"
+  },
+  {
+    "id": "cal-004",
+    "type": "bill_due",
+    "title": "State Farm installment",
+    "bill_id": "bill-004",
+    "date": "2026-09-22",
+    "payee": "State Farm Insurance"
+  },
+  {
+    "id": "cal-005",
+    "type": "bill_due",
+    "title": "PG&E (duplicate alert)",
+    "bill_id": "bill-005",
+    "date": "2026-09-18",
+    "payee": "Pacific Gas & Electric"
+  },
+  {
+    "id": "cal-006",
+    "type": "bill_due",
+    "title": "GreenLeaf Landscaping (new payee)",
+    "bill_id": "bill-006",
+    "date": "2026-09-19",
+    "payee": "GreenLeaf Landscaping"
+  },
+  {
+    "id": "cal-007",
+    "type": "reminder",
+    "title": "Review BillPilot weekly digest",
+    "date": "2026-09-21",
+    "bill_id": null
+  }
+]
