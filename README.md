@@ -9,9 +9,15 @@
 
 ## Live demo
 
-**Production web demo:** https://billpilot-web.vercel.app
+**Production Control Plane:** https://billpilot-web.vercel.app
 
-Click **Run live demo** to exercise the decision gate (auto-handle vs human escalate).
+Warm paper/ledger UI for the **Northbridge** household (Avery & Morgan Quinn). Click **Run live demo** to watch the Strands swarm:
+
+- **Intake → Risk → Treasurer / Comms** agent strip with live tool events
+- **Decision Gate** — only the `HUMAN_REQUIRED` bills interrupt (surprise bump, duplicate, new payee, low funding)
+- **Hash-chained audit ledger** with verify status in the same view
+
+The offline CLI (`python -m billpilot.demo`) and the live Control Plane exercise the **same policy gate** and scenario set.
 
 ## Demo video
 
@@ -42,7 +48,7 @@ Households lose hours to recurring admin: due dates, “did I already pay that?�
 
 ## Who it’s for
 
-Busy households who want bill busywork handled autonomously — not another dashboard to babysit every week.
+Busy households (demo: Northbridge / Avery & Morgan Quinn) who want bill busywork handled autonomously — not another dashboard to babysit every week.
 
 ## Why it matters
 
@@ -154,7 +160,7 @@ See [docs/JUDGING.md](docs/JUDGING.md).
 | Design | Coherent Everyday Agent: quiet by default, human only at policy gate |
 | Potential Impact | Specific audience + concrete failure modes (duplicates, surprises, new payees, buffer) |
 | Creativity | Agents propose / policy decides / ledger attests |
-| Presentation | Video + live web demo + one-command offline CLI |
+| Presentation | Video + Control Plane live demo + one-command offline CLI |
 
 ## Links
 
