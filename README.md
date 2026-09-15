@@ -130,6 +130,7 @@ LICENSE         # Apache-2.0
 
 ## Links
 
+- Builder.aws bonus post: https://builder.aws.com/content/3JLEXwVExE2NBkjRf5KTT85WsZM/agents-for-humans-building-billpilot-an-everyday-agent-that-only-interrupts-when-it-matters
 - Devpost: https://devpost.com/software/billpilot-ukjmq2
 - Demo video: https://www.youtube.com/watch?v=AlY--OayjzA
 - Hackathon: https://agentsforhumans.devpost.com/
