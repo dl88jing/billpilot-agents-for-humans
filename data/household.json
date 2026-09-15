@@ -1,10 +1,18 @@
 {
   "id": "hh-chen-reyes",
-  "name": "Chen-Reyes Household",
+  "name": "Northbridge Household",
   "timezone": "America/Los_Angeles",
   "members": [
-    {"name": "Maya Chen", "role": "primary", "notify": true},
-    {"name": "Jordan Reyes", "role": "partner", "notify": false}
+    {
+      "name": "Avery Quinn",
+      "role": "owner",
+      "notify": true
+    },
+    {
+      "name": "Morgan Quinn",
+      "role": "partner",
+      "notify": false
+    }
   ],
   "trusted_payees": [
     "Pacific Gas & Electric",
@@ -15,7 +23,10 @@
     "Verizon Wireless"
   ],
   "preferences": {
-    "quiet_hours": ["21:00", "07:00"],
+    "quiet_hours": [
+      "21:00",
+      "07:00"
+    ],
     "decision_channel": "push+email",
     "currency": "USD"
   }
