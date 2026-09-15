@@ -8,6 +8,12 @@
 [![Devpost](https://img.shields.io/badge/Devpost-BillPilot-orange)](https://devpost.com/software/billpilot-ukjmq2)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
+## Live demo
+
+**Production demo:** https://billpilot-web.vercel.app
+
+Click **Run live demo** to exercise the decision gate (auto-handle vs human escalate).
+
 ## Demo video
 
 Watch the pitch + end-to-end walkthrough (problem → who → why it matters → working demo):
@@ -131,6 +137,7 @@ LICENSE         # Apache-2.0
 ## Links
 
 - Builder.aws bonus post: https://builder.aws.com/content/3JLEXwVExE2NBkjRf5KTT85WsZM/agents-for-humans-building-billpilot-an-everyday-agent-that-only-interrupts-when-it-matters
+- Live demo: https://billpilot-web.vercel.app
 - Devpost: https://devpost.com/software/billpilot-ukjmq2
 - Demo video: https://www.youtube.com/watch?v=AlY--OayjzA
 - Hackathon: https://agentsforhumans.devpost.com/
